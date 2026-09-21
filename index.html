@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Кинотеатр «Восход» — расписание сеансов</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <div id="scroll-progress"></div>
+
+  <header class="site-header">
+    <div class="logo">Восход <small>кинотеатр</small></div>
+    <nav class="main-nav">
+      <a href="#">Расписание</a>
+      <a href="#">Скоро в кино</a>
+      <a href="#">Кинотеатр</a>
+      <a href="#">Кафе</a>
+      <a href="#">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <div class="icon-btn" onclick="alert('Поиск скоро заработает')">🔍</div>
+      <div class="btn btn--buy" onclick="document.getElementById('schedule').scrollIntoView({behavior:'smooth'})">Купить билет</div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <img class="hero__img" src="https://picsum.photos/seed/voskhod-hero/2400/800" alt="Кинотеатр">
+    <div class="hero__overlay">
+      <h3 class="hero__title">Премьера недели</h3>
+      <p class="hero__text">«Свет далёких окон» — история семьи, которая возвращается в дом у моря после долгих лет разлуки. Только на большом экране.</p>
+      <div class="hero__badge">Скидка 20% на утренние сеансы до 12:00</div>
+    </div>
+  </section>
+
+  <main class="page">
+    <section class="controls">
+      <select id="day-select" onchange="onDayChange()"></select>
+      <select id="hall-select" onchange="onHallChange()">
+        <option value="all">Все залы</option>
+        <option value="big">Большой зал</option>
+        <option value="small">Малый зал</option>
+        <option value="vip">VIP-зал</option>
+      </select>
+      <div class="legend">
+        <span class="legend__item"><span class="dot dot--ok"></span> мест достаточно</span>
+        <span class="legend__item"><span class="dot dot--few"></span> мест мало</span>
+      </div>
+    </section>
+
+    <div id="schedule"></div>
+
+    <section class="about">
+      <h3 class="about__title">О кинотеатре</h3>
+      <p class="about__text">«Восход» — кинотеатр в центре города, работает с 1968 года. Три зала, своя кухня, вечерние показы с обсуждением. Мы любим кино и тех, кто приходит его смотреть.</p>
+      <div class="features">
+        <div class="feature">
+          <div class="feature__icon">🍿</div>
+          <h4>Своя кухня</h4>
+          <p>Попкорн, кофе и ужины из локальных продуктов — можно взять с собой в зал.</p>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">♿</div>
+          <h4>Доступность</h4>
+          <p>Пандус у входа, места для колясок в Большом зале, сопровождение по предварительной записи.</p>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">🎧</div>
+          <h4>Субтитры и тифлокомментирование</h4>
+          <p>Показы с субтитрами — по вторникам, тифлокомментирование — по записи.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Кино</h4>
+        <a href="#">Расписание</a>
+        <a href="#">Скоро в кино</a>
+        <a href="#">Абонементы</a>
+      </div>
+      <div class="footer-col">
+        <h4>Кинотеатр</h4>
+        <a href="#">О нас</a>
+        <a href="#">Кафе</a>
+        <a href="#">Вакансии</a>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <p>ул. Приморская, 12</p>
+        <p>+7 (900) 000-00-00</p>
+        <p>Ежедневно 10:00–23:00</p>
+      </div>
+    </div>
+    <p class="footer-note">© 2026 Кинотеатр «Восход». Учебный макет.</p>
+  </footer>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal__box">
+      <div class="modal__close" onclick="closeModal()">✕</div>
+      <h3 class="modal__title">Покупка билета</h3>
+      <div id="modal-body"></div>
+      <div class="modal__actions">
+        <div class="btn btn--buy" onclick="alert('Демо: оплата недоступна')">Оплатить</div>
+        <div class="btn btn--ghost" onclick="closeModal()">Отмена</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
