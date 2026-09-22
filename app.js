@@ -85,7 +85,7 @@ function renderSchedule() {
         + "</div>";
     }
     html += '<article class="card">'
-      + '<div class="card__poster"><img src="https://picsum.photos/seed/' + film.seed + '/1000/1500"'
+      + '<div class="card__poster"><img src="https://loremflickr.com/500/750/cinema?lock=' + film.id + '"'
       + (film.altText ? ' alt="' + film.altText + '"' : "") + "></div>"
       + '<div class="card__info">'
       + '<h3 class="card__title">' + film.title + ' <span class="badge badge--age">' + film.ageRating + "</span>"
